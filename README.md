@@ -236,6 +236,7 @@ M84                 ; Disable steppers
 - https://digitalfactory.ultimaker.com/app/library
 - https://www.3dwasp.com/wp-content/uploads/2019/09/Manual-Delta-WASP-2040-Clay.pdf
 - https://wikifactory.com/@vicckkky/flsun-sr-clay-conversion
+- https://commons.wikimedia.org/wiki/Category:STL_mathematics
 
 ---
 
