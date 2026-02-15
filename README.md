@@ -143,6 +143,7 @@ M84                 ; Disable steppers
 
 ## Additional Information Settings
 - **Clay Profile Settings**
+
 | **Nozzle size (mm)**                  |                         1.8 mm |                       3.0 mm |
 | ------------------------------------- | -----------------------------: | ---------------------------: |
 | **--Profile--**                       | cura_profile_1_8mm.curaprofile | cura_profile_3mm.curaprofile |
@@ -167,22 +168,26 @@ M84                 ; Disable steppers
 | **Travel Speed (mm/s)**               |                             30 |                           40 |
 | **Initial Layer Speed (mm/s)**        |                    12 (20×0.6) |                           20 |
 
-- **Print Profile Settings (*Required manual input*)**
+
+
 |  **--Nozzle Settings--**              |                         1.8 mm |                       3.0 mm |
 | ------------------------------------- | -----------------------------: | ---------------------------: |
+| **--Print Profile Settings--**        |                                |                              |
 | **Nozzle size-**                      |                            1.8 |                          3.0 |
 | **Compatible Material Diameter(mm)**  |                           2.85 |                          2.85|
 
 
+
 |  **Materials Settings**             |                              1.8 mm |                        3.0 mm     |
-| **--Profile--**                     | clay_natural_1_8mm.xml.fdm_material | clay_natural_3mm.xml.fdm_material |
 | ----------------------------------- | ----------------------------------: | --------------------------------: |
+| **--Profile--**                     | clay_natural_1_8mm.xml.fdm_material | clay_natural_3mm.xml.fdm_material |
 | **--Information--**                 |                                     |                                   |
 | **Density**                         |                                1.24 |                              1.24 |
 | **Diameter**                        |                                 1.8 |                                 3 |
 | **--Print Settings--**              |                                     |                                   |
 | **Retraction Distance**             |             6.5 × (1.8/3.0) ≈ 3.9mm |                             6.5mm |
 | **Retraction Speed**                |                              25mm/s |                            25mm/s |
+
 
 - **Testing 1.8mm Nozzel**
     - Materials Settings (Print Settings) Retraction distance 6.5 × (1.8/3.0) ≈ 3.9mm next as Retraction Distance from 6.5mm
