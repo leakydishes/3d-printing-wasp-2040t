@@ -141,18 +141,50 @@ M84                 ; Disable steppers
 ---
 
 ## Additional Information Settings
+- **Clay Profile Settings**
 | **Nozzle size (mm)**                  |                         1.8 mm |                       3.0 mm |
-| **Profile**                           | cura_profile_1_8mm.curaprofile | cura_profile_3mm.curaprofile |
 | ------------------------------------- | -----------------------------: | ---------------------------: |
+| **--Profile--**                       | cura_profile_1_8mm.curaprofile | cura_profile_3mm.curaprofile |
+| **Layer height (mm)**                 |                0.60 (1.8×0.33) |                         1.00 |
+| **Initial layer height (mm)**         |               0.40 ≈(1.8×0.23) |                         0.70 |
 | **Line width / extrusion width (mm)** |                            1.8 |                          3.0 |
-| **Layer height (mm)**                 |                                |                         1.00 |
-| **Initial layer height (mm)**         |                                |                         0.70 |
+| **Top/Bottom Line Width (mm)**        |                            1.8 |                          3.0 |
+| **--Quality--**                       |                                |                              |
+| **Wall thickness**                    |                            1.8 |                          3.0 |
+| **Wall Line Count**                   |                              2 |                            3 |
+| **--Top/Bottom--**                    |                                |                              |
+| **Top/Bottom thickness (mm)**         |                            0.0 |                          0.0 |
 | **Top thickness (mm)**                |                            0.0 |                          0.0 |
 | **Top layers**                        |                              0 |                            0 |
-| **Bottom thickness (mm)**             |                                |                         1.20 |
+| **Bottom thickness (mm)**             |                0.72 (1.8×0.40) |                         1.20 |
 | **Bottom layers**                     |                              2 |                            2 |
 | **Wall flow (%)**                     |                            100 |                          100 |
-| **Ratio: layer height ÷ line width**  |                           0.33 |                         0.33 |
+| **Ratio: layer height ÷ line width**  |                 0.33 (0.6/1.8) |                         0.33 |
+| **--Speed--**                         |                                |                              |
+| **Print Speed (mm/s)**                |                    30 (50×0.6) |                           50 |
+| **Wall Speed (mm/s)**                 |                    30 (50×0.6) |                           50 |
+| **Travel Speed (mm/s)**               |                             30 |                           40 |
+| **Initial Layer Speed (mm/s)**        |                    12 (20×0.6) |                           20 |
+
+- **Print Profile Settings (*Required manual input*)**
+|  **--Nozzle Settings--**              |                         1.8 mm |                       3.0 mm |
+| ------------------------------------- | -----------------------------: | ---------------------------: |
+| **Nozzle size-**                      |                            1.8 |                          3.0 |
+| **Compatible Material Diameter(mm)**  |                           2.85 |                          2.85|
+
+
+|  **Materials Settings**             |                              1.8 mm |                        3.0 mm     |
+| **--Profile--**                     | clay_natural_1_8mm.xml.fdm_material | clay_natural_3mm.xml.fdm_material |
+| ----------------------------------- | ----------------------------------: | --------------------------------: |
+| **--Information--**                 |                                     |                                   |
+| **Density**                         |                                1.24 |                              1.24 |
+| **Diameter**                        |                                 1.8 |                                 3 |
+| **--Print Settings--**              |                                     |                                   |
+| **Retraction Distance**             |             6.5 × (1.8/3.0) ≈ 3.9mm |                             6.5mm |
+| **Retraction Speed**                |                              25mm/s |                            25mm/s |
+
+- **Testing 1.8mm Nozzel**
+    - Materials Settings (Print Settings) Retraction distance 6.5 × (1.8/3.0) ≈ 3.9mm next as Retraction Distance from 6.5mm
 
 #### Notes:
 ##### **Quality**
@@ -165,7 +197,7 @@ M84                 ; Disable steppers
 - **Wall Line Count**: default is set as 1 if the Wall Thickness is set the same as the Line Width. Optional update Wall count to 2 or 3 and the Wall Thickness becomes greyed out.
 - **Top/Bottom Thickness**: gets taken from the Layer/Slice Height (keep as 0 if no base or using slab of clay to print on), 
 - **Top Thickness**: without infill there is no Top in clay (set to 0)
-- **Bottom Thickness**: Creates a base (if not printing onto a slab ect). If printing base, print at least 3 layers so base would be Layer Height (i.e 3mm nozzel = 1mm layer height x 3 = 3mm)
+- **Bottom Thickness**: Creates a base (if not printing onto a slab ect). If printing base, print at least 3 layers so base would be Layer Height (i.e 3mm nozzel 1.8mm = too thick, 1.2mm correct)
 
 ##### **Infill**
 - **Infill Density**: open forms set to 0
@@ -177,11 +209,11 @@ M84                 ; Disable steppers
 - **Enable Retraction**: Activate
 
 ##### **Speed**
-- **Print Speed**: 50%
+- Moving from 3mm to 1.8mm we scale=1.8/3.0=0.6
+- **Print Speed**: 50% (3mm)
 - **Wall Speed**: 50% (same as print speed)
-- **Travel Speed**: the speed the machine moves from home or the top of the tower down to begin printing and the speed it moves between printing. Too fast and you can distort prints
-as the printhead moves between printing areas. Set between 30 - 50 mm/s.
-- **Initial Layer Speed**: 20m/s (print slower to set base)
+- **Travel Speed**: the speed the machine moves from home or the top of the tower down to begin printing and the speed it moves between printing. Too fast and you can distort prints (must reduce for 1.8mm nozzle) as the printhead moves between printing areas. Set between 30 - 50 mm/s.
+- **Initial Layer Speed**: 20m/s (print slower to set base) (3mm)
 
 ##### **Travel**
 - **Combing Mode**: All
