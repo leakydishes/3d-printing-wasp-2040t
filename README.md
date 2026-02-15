@@ -13,73 +13,126 @@ Setup notes, Cura profile info, and start/end G-code for the Delta WASP 2040 TUR
 
 ---
 
-## Cura Settings
+## Cura Machine Settings
+
+<p align="center">
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/cura_machine_settings_1.png" alt="Machine Settings 1" width="48%">
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/cura_machine_settings_2.png" alt="Machine Settings 2" width="48%">
+</p>
+
+---
 
 ### Start G-code
 
 ```gcode
-G28 ;Home
-M302 S0 ;Set cold extrusion
-M92 E400 ;E Steps at 400 steps/mm M92 E-400 reverse
-G1 Z15.0 F6000 ;Move the platform down 15mm
-;Prime the extruder
-G92 E0
-G1 F200 E3
-G92 E0
+; --- Startup / setup ---
+G28                 ; Home all axes (X/Y/Z)
+
+M302 S0             ; Allow cold extrusion (paste/clay extruders)
+M92 E400            ; Extruder steps/mm (use E-400 to reverse direction)
+
+G1 Z15.0 F6000      ; Move to Z=15mm for clearance
+
+; --- Prime ---
+G92 E0              ; Zero extruder position
+G1 F200 E3          ; Extrude 3mm to prime
+G92 E0              ; Zero again for clean start
 ```
 
 ### End G-code
 
 ```gcode
-M104 S0
-M140 S0
-;Retract the filament
-G92 E1
-G1 E-1 F300
-G28 X0 Y0
-M84
+; --- End / shutdown ---
+M104 S0             ; Hotend off (safe even if not used)
+M140 S0             ; Bed off (safe even if not used)
+
+; Retract / relieve pressure
+G92 E1              ; Set extruder position reference
+G1 E-1 F300         ; Retract 1mm
+
+; Park / tidy up
+G28 X0 Y0           ; Home X/Y to park head
+
+M84                 ; Disable steppers
 ```
 
+
 ---
 
-## Cura Profile
+## Extruder / Printing / Plate Height
+- **Platform height with current Z setting:** ~399.00 (**~1.5 cm**)
 
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <b>Extruder Placement</b><br>
+      <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/blob/main/img/wasp_extruder_head_placement.png" alt="Extruder Placement" width="100%">
+    </td>
+    <td align="center" width="33%">
+      <b>Printing Example</b><br>
+      <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/wasp_extruder_print.png" alt="Printing Example" width="100%">
+    </td>
+    <td align="center" width="33%">
+      <b>WASP Plate Height per Z value 399</b><br>
+      <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/wasp_plate_height_per_z_value_399.png" alt="WASP Plate Height per Z value 399" width="100%">
+    </td>
+  </tr>
+</table>
+
+---
+
+## Cura Profile Example
+#### See directory `cura_profiles` for others
 - **ClayCuraProfile_nossle_3mm_base**
 
-### Cura
-- **ClayCuraProfile_nossle_3mm_base**
+<p>
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/clay_cura_profile_nozzle_3mm_base.png" alt="Clay Cura Profile - Nozzle 3mm Base" width="900">
+</p>
 
 ---
 
-## Material Setting
+## Cura Graph Cartesian coordinate
 
-_TODO: add your material settings here (e.g., clay type, moisture level, retraction behavior, flow, etc.)._
+<p align="center">
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/clay_cura_profile_nozzle_3mm_base_z_107.png" alt="3mm_base_z_107" width="48%">
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/clay_cura_profile_nozzle_3mm_base_z_83.png" alt="3mm_base_z_83" width="48%">
+</p>
+
 
 ---
+
+## Material Cura Settings (Print + Information)
+
+<p align="center">
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/cura_material_settings_print.png" alt="Material Cura Settings (Print)" width="48%">
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/cura_material_settings_information.png" alt="Material Cura Settings (Information)" width="48%">
+</p>
+
+---
+
 
 ## Clay Consistency
 
-**Clay Consistency (left to wet, right good)**  
-_TODO: add notes / photos / observations._
+<p>
+  <b>Clay Consistency</b><br>
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/clay_consistency_2.png" alt="Clay Consistency (1 too soft, 2 correct viscosity)" width="380">
+</p>
+
+- **1 — Too soft**
+- **2 — Correct viscosity**
 
 ---
 
-## Platform Height
+## Clay Outcomes
 
-**Platform height with current Z setting:** ~399.00 (**~1.5 cm**)  
-_TODO: add any leveling notes, offsets, or calibration steps._
-
----
-
-## Day Two Outcomes
-
-_TODO: record outcomes (what worked, what failed, what changed, next steps)._
+<p>
+  <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/blob/main/img/vase_basic_3mm_outcomes.png" alt="Clay Outcomes" width="420">
+</p>
 
 ---
 
 ## Additional Information
 
-_TODO: add troubleshooting notes, best practices, and any observed issues._
 
 ---
 
