@@ -117,6 +117,7 @@ M84                 ; Disable steppers
 #### Notes Machine Settings
 - Create/ import `Natural Clay` profile
 - Set `Retraction Distance` and all `temperatures` to 0, no internal heating required.
+- Renamed `Clay Natural` to `Clay Natural 3mm`
 ---
 
 
