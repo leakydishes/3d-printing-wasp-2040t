@@ -3,7 +3,7 @@ Setup notes, Cura profile info, and start/end G-code for the Delta WASP 2040 TUR
 
 # Delta WASP 2040 TURBO2 - Clay Printing Notes (Clay Kit 3.0)
 
-## Printer Overview
+## Overview
 
 **Delta WASP 2040 TURBO2**
 - **Clay Kit:** 3.0 (LDM WASP Extruder)
@@ -11,6 +11,7 @@ Setup notes, Cura profile info, and start/end G-code for the Delta WASP 2040 TUR
 - **Slicing software:** compatible with all slicing software (Cura - Slic3r - Simplify3D)
 - **File types:** `.stl`, `.obj`, `.gcode`
 
+#### See `Additional Information` for print settings
 ---
 
 ## Cura Machine Settings
@@ -139,8 +140,53 @@ M84                 ; Disable steppers
 
 ---
 
-## Additional Information
+## Additional Information Settings
+| **Nozzle size (mm)**                  |                         1.8 mm |                       3.0 mm |
+| **Profile**                           | cura_profile_1_8mm.curaprofile | cura_profile_3mm.curaprofile |
+| ------------------------------------- | -----------------------------: | ---------------------------: |
+| **Line width / extrusion width (mm)** |                            1.8 |                          3.0 |
+| **Layer height (mm)**                 |                                |                         1.00 |
+| **Initial layer height (mm)**         |                                |                         0.70 |
+| **Top thickness (mm)**                |                            0.0 |                          0.0 |
+| **Top layers**                        |                              0 |                            0 |
+| **Bottom thickness (mm)**             |                                |                         1.20 |
+| **Bottom layers**                     |                              2 |                            2 |
+| **Wall flow (%)**                     |                            100 |                          100 |
+| **Ratio: layer height ÷ line width**  |                           0.33 |                         0.33 |
 
+#### Notes:
+##### **Quality**
+- **Line width / extrusion width (mm)**: will be set by the nozzle width set in the Printer profile (i.e 3mm nozzle = 3mm line width)
+- **Layer height (mm)**: 2 mm nozzle use between a 0.6 - 0.8 layer or slice height (i.e 2mm nozzle = 0.6-0.8mm layer height), (i.e 3mm nozzle = 1mm layer height)
+- **Initial layer height (mm)**: half normal layer height helps the first layer stick down (i.e 3mm nozzle = 1.5-1.7mm initial layer height)
+
+##### **Shell**
+- **Wall Thickness**: same as Line Width and Nozzle (double or triple wall thickness you can increase x2 or x3 of the line width measurement (i.e 3mm nozzel/ 3mm line width = (x2) 6mm Wall thickness)
+- **Wall Line Count**: default is set as 1 if the Wall Thickness is set the same as the Line Width. Optional update Wall count to 2 or 3 and the Wall Thickness becomes greyed out.
+- **Top/Bottom Thickness**: gets taken from the Layer/Slice Height (keep as 0 if no base or using slab of clay to print on), 
+- **Top Thickness**: without infill there is no Top in clay (set to 0)
+- **Bottom Thickness**: Creates a base (if not printing onto a slab ect). If printing base, print at least 3 layers so base would be Layer Height (i.e 3mm nozzel = 1mm layer height x 3 = 3mm)
+
+##### **Infill**
+- **Infill Density**: open forms set to 0
+- **Infill Line Distance**: not active is infill is 0.
+
+##### **Material**
+- **Wall Flow**: 100% (controls flow speed, linked to the nozzle size and the material diameter).
+- **Initial Layer Flow**: 100 %
+- **Enable Retraction**: Activate
+
+##### **Speed**
+- **Print Speed**: 50%
+- **Wall Speed**: 50% (same as print speed)
+- **Travel Speed**: the speed the machine moves from home or the top of the tower down to begin printing and the speed it moves between printing. Too fast and you can distort prints
+as the printhead moves between printing areas. Set between 30 - 50 mm/s.
+- **Initial Layer Speed**: 20m/s (print slower to set base)
+
+##### **Travel**
+- **Combing Mode**: All
+- **Z Hop When Retracted**: Activate
+- **Z Hop Height**: Extrusion pulls up breaking the clay extrusion between printhead non printing moves (1-2 mm)
 
 ---
 
