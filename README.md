@@ -14,11 +14,16 @@ Setup notes, Cura profile info, and start/end G-code for the Delta WASP 2040 TUR
 ---
 
 ## Cura Machine Settings
-
+- **WASP 2040: x width 200 mm, y depth 200, z height 400**
+- **Printhead Extruder 1 set up as per image**
 <p align="center">
   <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/cura_machine_settings_1.png" alt="Machine Settings 1" width="48%">
   <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/cura_machine_settings_2.png" alt="Machine Settings 2" width="48%">
 </p>
+
+#### Notes Machine Settings
+- The nozzle size regulates the flow of material as controlled by the feed speed (different nozzle sizes require different Printer profiles)
+- **Custom material** is required diameter of 1 mm, larger numbers will impact the flow rate. If 100% flow is too fast, increase the custom material diameter.
 
 ---
 
@@ -101,13 +106,16 @@ M84                 ; Disable steppers
 
 ---
 
-## Material Cura Settings (Print + Information)
+## Material Settings (Print + Information)
 
 <p align="center">
   <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/cura_material_settings_print.png" alt="Material Cura Settings (Print)" width="48%">
   <img src="https://github.com/leakydishes/3d-printing-wasp-2040t/raw/main/img/cura_material_settings_information.png" alt="Material Cura Settings (Information)" width="48%">
 </p>
 
+#### Notes Machine Settings
+- Create/ import `Natural Clay` profile
+- Set `Retraction Distance` and all `temperatures` to 0, no internal heating required.
 ---
 
 
