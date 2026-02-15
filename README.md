@@ -203,6 +203,7 @@ M84                 ; Disable steppers
 ##### **Infill**
 - **Infill Density**: open forms set to 0
 - **Infill Line Distance**: not active is infill is 0.
+- **[Reference](https://support.ultimaker.com/s/article/1667411002588)**
 
 ##### **Material**
 - **Wall Flow**: 100% (controls flow speed, linked to the nozzle size and the material diameter).
